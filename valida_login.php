@@ -18,6 +18,13 @@
     // echo "<br />";
     // echo $_GET['senha'];
     //Essa tag verifica se a autenticação foi realizado
+
+    session_start();
+
+    $_SESSION['X'] = 'VALOR DE SESSÃO';
+    print_r($_SESSION);
+    echo '<hr />';
+
     $usuario_autenticado = false;
     $usuarios = [
         ['email' => 'benj@gmail.com', 'senha' => '123123'],
@@ -32,9 +39,12 @@
         }
     }
        if($usuario_autenticado){
-            header('Location: home.php');
+            // header('Location: home.php');
+            echo 'usuário autenticado';
+            $_SESSION['autenticado'] = 'sim';
             }
         else{
+            $_SESSION['autenticado'] = 'não';
             header('Location: index.php?login=erro');
     }
 
