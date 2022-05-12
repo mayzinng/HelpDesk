@@ -42,6 +42,10 @@
             // header('Location: home.php');
             echo 'usuário autenticado';
             $_SESSION['autenticado'] = 'sim';
+            $_SESSION['x'] = 'valor';
+            $_SESSION['y'] = 'valor2';
+
+            header('Location: home.php');
             }
         else{
             $_SESSION['autenticado'] = 'não';
